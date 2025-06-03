@@ -286,3 +286,27 @@ body.homepage main > div.section:nth-child(2), body.homepage main > div.section:
   height: 60%;
 }
 
+body.brand main ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style-type: none;
+  gap: 32px;
+  
+
+  & li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 230px;
+    width: 230px;
+    background-color: #858585;
+    text-align: center;
+    
+    & a {
+      color: var(--light-text-color);
+
+    }
+  }
+}
+
