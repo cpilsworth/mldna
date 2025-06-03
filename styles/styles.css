@@ -302,11 +302,15 @@ body.brand main ul {
     width: 230px;
     background-color: #858585;
     text-align: center;
-    
+
     & a {
       color: var(--light-text-color);
 
     }
+  }
+
+  & li:hover {
+    background-color: #656565;
   }
 }
 
