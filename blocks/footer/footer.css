@@ -13,8 +13,39 @@ footer .footer p {
   margin: 0;
 }
 
+footer .footer ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  & li a {
+    color: var(--text-color);
+  }
+}
+
 @media (width >= 900px) {
   footer .footer > div {
     padding: 40px 32px 24px;
   }
+
+  footer .footer ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 32px;
+
+    & li {
+      border-right: 1px solid var(--text-color);
+      padding-right: 32px;
+    }
+
+    & li:last-child {
+      border-right: unset;
+      padding-right: 32px;
+    }
+  }
+
+
+
 }
+
