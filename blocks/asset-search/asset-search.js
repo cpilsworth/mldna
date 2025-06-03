@@ -17,7 +17,7 @@ function Result(props) {
     return html`<div class="result-item">
         <div class="result-item-image">
             <a href="https://experience.adobe.com/#/@adobeemea78/assets/contenthub/assets/urn:aaid:aem:e206c59c-188e-4ff9-9e33-5795c4e1913d" target="_blank">
-                <img src="${base}/${result.assetId}/as/image.png?width=130" alt="${result.assetMetadata['dc:title'] || result.assetMetadata['autogen:title']}"/>
+                <img src="${base}/${result.assetId}/as/image.png?width=500" alt="${result.assetMetadata['dc:title'] || result.assetMetadata['autogen:title']}"/>
             </a>
         </div>
         <p class="result-item-info">${result.repositoryMetadata['repo:name']}<br/>
@@ -50,14 +50,17 @@ function Results(props) {
 /** SEARCH PREP */
 
 function criteriaToQuery(criteria) {
-    let criteriaQuery = {};
+    let criteriaQuery = [];
 
-    if (criteria.jlrCampaign) {
-        Object.assign(criteriaQuery, {
-            "term": {
-                "metadata.assetMetadata.jlrCampaign": [criteria.jlrCampaign]
-            }
-        });
+    if (criteria.keywords) {
+        for (const keyword of criteria.keywords) {
+            criteriaQuery.push({
+                "term": {
+                    "metadata.assetMetadata.dc:subject": [ keyword ]
+                }
+            });
+        }
+
     } else {
         Object.assign(criteriaQuery, {
             "term": {
@@ -68,7 +71,9 @@ function criteriaToQuery(criteria) {
 
     console.log(JSON.stringify(criteriaQuery));
     const query = {
-        "query": [criteriaQuery],
+        "query": [{
+            "and": criteriaQuery
+        }],
         "orderBy": "metadata.repositoryMetadata.repo:createDate desc",
         "limit": 50
     };
@@ -99,10 +104,10 @@ export default async function decorate(block) {
     block.innerHTML = '';
 
     const searchParams = new URLSearchParams(document.location.search);
-    const jlrCampaign = searchParams.get('jlrCampaign')?.trim();
+    const keywords = searchParams.get('keywords')?.trim().split(',');
 
     const criteria = {
-        "jlrCampaign": jlrCampaign
+        "keywords": keywords
     };
 
     let results = await search(config, criteria);
