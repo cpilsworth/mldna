@@ -1,3 +1,45 @@
 .teaser {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--dark-color);
+    color: var(--light-text-color);
+    border-radius: 8px;
+    
 
+    & * picture img {
+        border-radius: 8px;
+    }
+
+    & div div:last-child {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+    }
 }
+
+.teaser.right > div, .teaser.left > div  {
+    display: flex;    
+    
+    & > div:first-child {
+        width: 50%;
+    }
+
+    & > div:last-child {
+        width: 50%;
+    }
+
+    & .teaser-img picture img {
+        border-radius: 8px;
+    }
+}
+
+.teaser.right > div  {
+    flex-direction: row;
+}
+
+.teaser.left > div  {
+    flex-direction: row-reverse;
+}
+
