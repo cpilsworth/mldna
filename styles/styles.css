@@ -12,10 +12,12 @@
 
 :root {
   /* colors */
-  --background-color: white;
+  --nav-background-color: white;
+  --background-color: #e7e8eb;
   --light-color: #f8f8f8;
-  --dark-color: #505050;
+  --dark-color: #454545;
   --text-color: #131313;
+  --light-text-color: white;
   --link-color: #3b63fb;
   --link-hover-color: #1d3ecf;
 
@@ -35,7 +37,7 @@
   --heading-font-size-m: 27px;
   --heading-font-size-s: 24px;
   --heading-font-size-xs: 22px;
-  --page-width: 1500px;
+  --page-width: 1350px;
 
   /* nav height */
   --nav-height: 64px;
@@ -274,10 +276,13 @@ body.homepage main > div.section:nth-child(1) {
   margin: unset;
 }
 
-body.homepage main > div.section:nth-child(2) {
+body.homepage main > div.section:nth-child(2), body.homepage main > div.section:nth-child(3) {
   width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  height: 60%;
 }
 
-body.homepage main > div.section:nth-child(3){
-  width: 50%;
-} 
