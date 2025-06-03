@@ -10,12 +10,15 @@
         border-radius: 8px;
     }
 
-    & div div:last-child {
+    & .teaser-content {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        
+
+        & p a {
+            color: var(--light-text-color);
+        }
     }
 }
 
@@ -33,10 +36,6 @@
     & .teaser-img picture img {
         border-radius: 8px;
     }
-}
-
-.teaser.right > div  {
-    flex-direction: row;
 }
 
 .teaser.left > div  {

@@ -1,5 +1,6 @@
 export default function decorate(block) {
     // setup image columns
+    removeButtonsClass(block);
     [...block.children].forEach((row) => {
         [...row.children].forEach((col) => {
             const pic = col.querySelector('picture');
@@ -20,5 +21,13 @@ export default function decorate(block) {
                 }
             }
         });
+    }); 
+}
+
+function removeButtonsClass(block) {
+    const buttons = block.querySelectorAll('a.button');
+    buttons.forEach(button => {
+        button.classList.remove('button');
+        button.closest('div').classList.remove('button-container')
     });
 }
