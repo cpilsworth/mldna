@@ -255,3 +255,24 @@ main .section.highlight {
   margin: 0;
   padding: 40px 0;
 }
+/* 
+body.homepage > main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+
+body.homepage main > div.section:nth-child(1) {
+  width: 100%;
+}
+
+body.homepage main > div.section:nth-child(2) {
+  width: 50%;
+}
+
+body.homepage main > div.section:nth-child(3){
+  width: 50%;
+}  */
