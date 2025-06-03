@@ -35,6 +35,7 @@
   --heading-font-size-m: 27px;
   --heading-font-size-s: 24px;
   --heading-font-size-xs: 22px;
+  --page-width: 1500px;
 
   /* nav height */
   --nav-height: 64px;
@@ -233,7 +234,7 @@ main > .section {
 }
 
 main > .section > div {
-  max-width: 1200px;
+  max-width: var(--page-width);
   margin: auto;
   padding: 0 24px;
 }
@@ -255,18 +256,22 @@ main .section.highlight {
   margin: 0;
   padding: 40px 0;
 }
-/* 
+
 body.homepage > main {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  max-width: var(--page-width);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 
 body.homepage main > div.section:nth-child(1) {
   width: 100%;
+  margin: unset;
 }
 
 body.homepage main > div.section:nth-child(2) {
@@ -275,4 +280,4 @@ body.homepage main > div.section:nth-child(2) {
 
 body.homepage main > div.section:nth-child(3){
   width: 50%;
-}  */
+} 
