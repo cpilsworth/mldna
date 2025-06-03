@@ -5,7 +5,6 @@
     color: var(--light-text-color);
     border-radius: 8px;
     
-
     & * picture img {
         border-radius: 8px;
     }
@@ -25,20 +24,25 @@
 .teaser.right > div, .teaser.left > div  {
     display: flex;    
     
-    & > div:first-child {
+    & .teaser-img {
+        width: 50%;
+
+        & picture img {
+            border-radius: 8px;
+        }
+    }
+
+    & .teaser-content {
         width: 50%;
     }
 
-    & > div:last-child {
-        width: 50%;
-    }
-
-    & .teaser-img picture img {
-        border-radius: 8px;
-    }
 }
 
 .teaser.left > div  {
     flex-direction: row-reverse;
+}
+
+.teaser.right > div  {
+    flex-direction: row;
 }
 
