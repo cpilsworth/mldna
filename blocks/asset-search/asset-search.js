@@ -25,7 +25,7 @@ function Result(props) {
         <span class="result-item-format"> <${Format} format=${result.repositoryMetadata['dc:format']}/></span>
         <span class="result-item-name"> ${result.repositoryMetadata['repo:name']}</span><br/>
         <span class="result-item-size"> Size: ${result.repositoryMetadata['repo:size']}</span>
-        /div>
+        </div>
     </div>`;
 }
 
@@ -35,7 +35,7 @@ function Filter(props) {
     return html`<div class="filter">
         <p>${results?.search_metadata?.count || 0} results found</p>
         <form>        
-        <input type="text" name="keywords" value="${filter.keywords.join(',')}" placeholder="Keywords"/><br/>
+        <input type="text" name="keywords" value="${filter?.keywords?.join(',')}" placeholder="Keywords"/><br/>
         <input type="text" name="images" value="" placeholder="Search by image" disabled/><br/>
         <select id="cars" disabled >
            <option value="c1">Category 1</option>
