@@ -16,20 +16,39 @@ function Result(props) {
     const { result, base } = props;
     return html`<div class="result-item">
         <div class="result-item-image">
-            <a href="https://experience.adobe.com/#/@adobeemea78/assets/contenthub/assets/urn:aaid:aem:e206c59c-188e-4ff9-9e33-5795c4e1913d" target="_blank">
+            <a href="https://experience.adobe.com/#/@adobeemea78/assets/contenthub/assets/urn:aaid:aem:f91bd1e9-b7da-4071-99a1-c73eee2e16f4" target="_blank">
                 <img src="${base}/${result.assetId}/as/image.png?width=500" alt="${result.assetMetadata['dc:title'] || result.assetMetadata['autogen:title']}"/>
             </a>
         </div>
-        <p class="result-item-info">${result.repositoryMetadata['repo:name']}<br/>
-        <${Format} format=${result.repositoryMetadata['dc:format']}/>, Size: ${result.repositoryMetadata['repo:size']}</p>
+
+        <div class="result-item-info">
+        <span class="result-item-format"> <${Format} format=${result.repositoryMetadata['dc:format']}/></span>
+        <span class="result-item-name"> ${result.repositoryMetadata['repo:name']}</span><br/>
+        <span class="result-item-size"> Size: ${result.repositoryMetadata['repo:size']}</span>
+        /div>
     </div>`;
 }
 
 function Filter(props) {
     const { results, filter } = props;
+    console.log(filter);
     return html`<div class="filter">
         <p>${results?.search_metadata?.count || 0} results found</p>
-        <p>${filter}</p>
+        <form>        
+        <input type="text" name="keywords" value="${filter.keywords.join(',')}" placeholder="Keywords"/><br/>
+        <input type="text" name="images" value="" placeholder="Search by image" disabled/><br/>
+        <select id="cars" disabled >
+           <option value="c1">Category 1</option>
+           <option value="c2">Category 2</option>
+           <option value="c3" selected>Category 3</option>
+           <option value="all" selected>All Categories</option>
+        </select><br/>
+        <input type="text" name="images" value="" placeholder="Search by image" disabled/><br/>
+        <input type="text" name="images" value="" placeholder="Search by image" disabled/><br/>
+        <input type="text" name="images" value="" placeholder="Search by image" disabled/><br/>
+
+        <button type="submit">Filter</button>
+        </form>
     </div>`;
 }
 
@@ -41,7 +60,7 @@ function Results(props) {
             <div class="results-list">
                 ${results?.hits?.results?.map(result => html`<${Result} result=${result} base=${config.base}/>`)}
             </div>
-            <${Filter} results=${results} filter="${JSON.stringify(criteria)}"/>
+            <${Filter} results=${results} filter="${criteria}"/>
         </div>
     `;
 }
