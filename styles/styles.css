@@ -314,3 +314,10 @@ body.brand main ul {
   }
 }
 
+body.bulletins {
+  background-color: black;
+  
+  & h1 {
+    color: white;
+  }
+} 

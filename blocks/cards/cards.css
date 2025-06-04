@@ -74,3 +74,21 @@ body.brands .cards .cards-card-body p {
     content: '>';
   }
 }
+
+body.bulletins .cards .cards-card-body p {
+  margin: 0;
+
+  & a {
+    color: black;
+    text-decoration: none;
+  }
+
+  & a::after {
+    content: '>';
+  }
+}
+
+div.section.icons .cards-card-image picture img{
+  background-color: #858585;
+
+}
