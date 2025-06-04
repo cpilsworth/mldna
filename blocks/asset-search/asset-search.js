@@ -62,7 +62,7 @@ function criteriaToQuery(criteria) {
         }
 
     } else {
-        Object.assign(criteriaQuery, {
+        criteriaQuery.push({
             "term": {
                 "metadata.assetMetadata.dam:assetStatus": [ "approved"]
             }
